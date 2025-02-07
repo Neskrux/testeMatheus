@@ -15,11 +15,11 @@ feedback_map = {"Interessado": 2, "Pouco Interessado": 1, "Não Interessado": 0}
 df["Feedback_Clientes"] = df["Feedback_Clientes"].map(feedback_map)
 
 # Definir features e target
-X = df[["Faturamento_Mensal", "Num_Pacientes", "Historico_Credito", "Taxa_Conversao"]]
+X = df[["Faturamento_Mensal", "Num_Pacientes", "Historico_Credito", "Taxa_Conversao", "Score_Normalizado"]]
 y = df["Feedback_Clientes"]  
 
 # Dividir os dados em treino e teste
-X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=42)
+X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.3, random_state=42)
 
 # Criar e treinar o modelo
 clf = DecisionTreeClassifier(max_depth=3, random_state=42)
