@@ -16,13 +16,13 @@ df["Feedback_Clientes"] = df["Feedback_Clientes"].map(feedback_map)
 
 # Definir features e target
 X = df[["Faturamento_Mensal", "Num_Pacientes", "Historico_Credito", "Taxa_Conversao"]]
-y = df["Feedback_Clientes"]  # Proxy para fechamento
+y = df["Feedback_Clientes"]  
 
 # Dividir os dados em treino e teste
 X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=42)
 
 # Criar e treinar o modelo
-clf = DecisionTreeClassifier(max_depth=4, random_state=42)
+clf = DecisionTreeClassifier(max_depth=3, random_state=42)
 clf.fit(X_train, y_train)
 
 # Fazer previsões
